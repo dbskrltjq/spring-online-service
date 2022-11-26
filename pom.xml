@@ -48,11 +48,23 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
+		
+		<!-- spring boot가 제공하는 톰캣은 JSP를 지원하지 않으므로, 아래에 따로 톰캣 의존성 추가 -->
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
+		<dependency>
+	         <groupId>org.apache.tomcat.embed</groupId>
+	         <artifactId>tomcat-embed-jasper</artifactId>
+      	</dependency>
+      	
+      	<dependency>
+	         <groupId>javax.servlet</groupId>
+	         <artifactId>jstl</artifactId>
+     	</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
