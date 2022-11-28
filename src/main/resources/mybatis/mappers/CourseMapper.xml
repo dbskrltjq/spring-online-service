@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper>
+	<!-- void insertCourse(Course course); -->
+	<insert id="insertCourse" parameterType="Course">
+		<selectKey resultType="int" keyProperty="no" order="BEFORE">
+			select online_course_seq.nextval
+			from dual
+		</selectKey>
+		insert into online_courses
+			(course_no, course_title, course_grade, course_description, course_price, course_period, course_certificate_completion, user_id, course_imagename)
+		values
+			(#{no}, #{title}, #{grade}, #{description}, #{price}, #{period}, #{certificateCompletion}, #{user.id}, #{imagename})
+	</insert>
+	
+ 	<!-- void insertCourseCategory(CourseCategory courseCategory); -->
+ 	<insert id="insertCourseCategory" parameterType="CourseCategory">
+ 		insert into online_course_categories
+		values
+			(#{courseNo}, #{category.id})
+ 	</insert>
+ 	
+	<!-- void insertCourseLearning(CourseLearning courseLearning); -->
+	<insert id="insertCourseLearning" parameterType="CourseLearning">
+		insert into online_course_learnings
+		values
+			(#{courseNo}, #{learning})
+	</insert>
+	
+	<!-- void insertCourseRecommendation(CourseRecommendation courseRecommendation); -->
+	<insert id="insertCourseRecommendation" parameterType="CourseRecommendation">
+		insert into online_course_recommendations
+		values
+			(#{courseNo}, #{target})
+	</insert>
+	
+	<!-- void insertCourseTag(CourseTag courseTag); -->
+	<insert id="insertCourseTag" parameterType="CourseTag">
+		insert into online_course_tags
+		values
+			(#{courseNo}, #{tag})
+	</insert>
+	
+
+</mapper>

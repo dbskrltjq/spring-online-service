@@ -63,4 +63,25 @@ public class UserService {
 		
 		return user;
 	}
+	
+	public void confirmTeacher(String userId) {
+		User user = userMapper.getUserById(userId);
+		if(user == null) {
+			throw new OnlineApplicationException("사용자 정보가 존재하지 않습니다.");
+		}
+		if("Y".equals(user.getDisabled())) {
+			throw new OnlineApplicationException("탈퇴한 사용자는 서비스를 이용할 수 없습니다.");
+		}
+		if("Y".equals(user.getTeacher())) {
+			throw new OnlineApplicationException("이미 지식 공유자로 등록되어 있습니다.");
+		}
+		
+		user.setTeacher("Y");
+		userMapper.updateUser(user);
+	}
+
+	// 사용자의 최신 정보를 반환
+	public User getUserDetail(String userId) {
+		return userMapper.getUserById(userId);
+	}
 }
