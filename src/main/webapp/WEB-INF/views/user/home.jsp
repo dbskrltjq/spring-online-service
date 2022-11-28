@@ -21,7 +21,7 @@
 				<a href="#" class="list-group-item list-group-item-action py-3">대시보드</a>
 				<a href="#" class="list-group-item list-group-item-action py-3">수강바구니</a>
 				<a href="#" class="list-group-item list-group-item-action py-3">내 학습</a>
-				<a href="#" class="list-group-item list-group-item-action py-3">프로필</a>
+				<a href="/user/profile" class="list-group-item list-group-item-action py-3">프로필</a>
 				<a href="#" class="list-group-item list-group-item-action py-3">지식 공유자 신청</a>
 			</div>
 		</div>

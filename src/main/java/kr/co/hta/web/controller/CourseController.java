@@ -58,11 +58,11 @@ public class CourseController {
 			FileCopyUtils.copy(in, out);
 		}
 		
-		return "course/from2";
+		return "course/form2";
 	}
 	
 	@PostMapping(path = "/insert")
-	public String insert(@LoginUser User loginUser, @ModelAttribute("courseRegisterForm") CourseRegisterForm courseRegisterForm, SessionStatus sessionStatus) {
+	public String insert(@LoginUser User loginUser, @ModelAttribute("courseRegisterForm") CourseRegisterForm courseRegisterForm, SessionStatus sessionStatus) throws IOException {
 		courseService.addNewCourse(loginUser, courseRegisterForm);
 		sessionStatus.setComplete();
 		
