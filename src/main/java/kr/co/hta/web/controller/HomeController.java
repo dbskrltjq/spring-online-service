@@ -69,7 +69,7 @@ public class HomeController {
 			User user = userService.login(email, password);
 			model.addAttribute("LOGIN_USER", user);
 			return "redirect:/";
-		} catch (Exception e) {
+		} catch (OnlineApplicationException e) {
 			return "redirect:/login?fail=invalid";
 		}
 	}

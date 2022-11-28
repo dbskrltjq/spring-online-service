@@ -8,6 +8,7 @@
 	
 	<typeAliases>
 		<package name="kr.co.hta.vo" />	
+		<package name="kr.co.hta.criteria" />	
 	</typeAliases>
 	
 	
